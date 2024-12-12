@@ -21,14 +21,14 @@ for (let team of teamList) {
   let losses = teamLosses.split(" ")[1];
   let lossesNumber = Number(losses);
 
-  let winningPercantage = Math.round((winsNumber / ( winsNumber + lossesNumber )) * 100);
+  let winningPercentage = Math.round((winsNumber / ( winsNumber + lossesNumber )) * 100);
 
   teams.push({
     teamName,
-    winningPercantage
+    winningPercentage
   });
 
-  if (winningPercantage >= 50) {
+  if (winningPercentage >= 50) {
     team.style.color = "green";
   } else {
     team.style.color = "red";
@@ -36,11 +36,11 @@ for (let team of teamList) {
 }
 
 teams.forEach(team => {
-  if (!bestTeam || bestTeam.winningPercantage < team.winningPercantage) {
+  if (!bestTeam || bestTeam.winningPercentage < team.winningPercentage) {
     bestTeam = team;
   }
 
-  if (!worstTeam || worstTeam.winningPercantage > team.winningPercantage) {
+  if (!worstTeam || worstTeam.winningPercentage > team.winningPercentage) {
     worstTeam = team;
   }
 });
@@ -52,8 +52,8 @@ console.log(bestTeam);
 const bestTeamEl = document.createElement("p");
 const worstTeamEl = document.createElement("p");
 
-bestTeamEl.textContent = `The best team was ${bestTeam.teamName} with a winning percntage of ${bestTeam.winningPercantage}%.`;
-worstTeamEl.textContent = `The worst team was ${worstTeam.teamName} with a winning percntage of ${worstTeam.winningPercantage}%.`;
+bestTeamEl.textContent = `The best team was ${bestTeam.teamName} with a winning percntage of ${bestTeam.winningPercentage}%.`;
+worstTeamEl.textContent = `The worst team was ${worstTeam.teamName} with a winning percntage of ${worstTeam.winningPercentage}%.`;
 
 summary.appendChild(bestTeamEl);
 summary.appendChild(worstTeamEl);
