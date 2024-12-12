@@ -2,8 +2,7 @@ const teamList = document.querySelectorAll("li");
 const summary = document.querySelector("#summary");
 
 let teams = [];
-let bestTeam = null;
-let worstTeam = null;
+
 
 for (let team of teamList) {
   let teamStr = team.textContent;
@@ -35,19 +34,11 @@ for (let team of teamList) {
   }
 }
 
-teams.forEach(team => {
-  if (!bestTeam || bestTeam.winningPercentage < team.winningPercentage) {
-    bestTeam = team;
-  }
-
-  if (!worstTeam || worstTeam.winningPercentage > team.winningPercentage) {
-    worstTeam = team;
-  }
-});
+teams.sort((teamA, teamB) => teamB.winningPercentage - teamA.winningPercentage);
 
 console.log(teams);
-console.log(worstTeam);
-console.log(bestTeam);
+const bestTeam = teams[0];
+const worstTeam = teams.at(-1);
 
 const bestTeamEl = document.createElement("p");
 const worstTeamEl = document.createElement("p");
