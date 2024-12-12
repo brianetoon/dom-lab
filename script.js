@@ -1,5 +1,5 @@
 const teamList = document.querySelectorAll("li");
-const summary = document.querySelectorAll("#summary")[0];
+const summary = document.querySelector("#summary");
 
 let teams = [];
 let bestTeam = null;
